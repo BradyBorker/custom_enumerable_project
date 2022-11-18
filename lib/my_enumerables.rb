@@ -17,6 +17,20 @@ module Enumerable
     end
     selected
   end
+
+  def my_all?(&block)
+    countdown = self.length
+    self.my_each do |num|
+      if !block.call(num)
+        return false 
+      elsif block.call(num)
+        countdown -= 1
+      end
+      if countdown == 0
+        return true
+      end
+    end
+  end
 end
 
 # You will first have to define my_each
