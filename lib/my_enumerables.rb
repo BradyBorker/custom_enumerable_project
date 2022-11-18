@@ -57,6 +57,14 @@ module Enumerable
     end
     return self.length
   end
+
+  def my_map(&block)
+    new_list = []
+    self.my_each do |num|
+      new_list.append(block.call(num))
+    end
+    return new_list
+  end
 end
 
 # You will first have to define my_each
