@@ -15,7 +15,7 @@ module Enumerable
         selected.push(num)
       end
     end
-    selected
+    return selected
   end
 
   def my_all?(&block)
