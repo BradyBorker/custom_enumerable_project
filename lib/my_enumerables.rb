@@ -1,5 +1,12 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index(&block)
+    counter = 0
+    self.my_each do |num|
+      block.call(num, counter)
+      counter += 1
+    end
+  end
 end
 
 # You will first have to define my_each
