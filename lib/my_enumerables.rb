@@ -44,6 +44,19 @@ module Enumerable
     end
     return true
   end
+
+  def my_count(&block)
+    count = 0
+    if block_given?
+      self.my_each do |num|
+        if block.call(num)
+          count += 1
+        end
+      end
+      return count
+    end
+    return self.length
+  end
 end
 
 # You will first have to define my_each
