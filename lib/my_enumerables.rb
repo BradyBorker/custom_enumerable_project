@@ -19,17 +19,12 @@ module Enumerable
   end
 
   def my_all?(&block)
-    countdown = self.length
     self.my_each do |num|
       if !block.call(num)
-        return false 
-      elsif block.call(num)
-        countdown -= 1
-      end
-      if countdown == 0
-        return true
+        return false
       end
     end
+    return true
   end
 
   def my_any?(&block)
