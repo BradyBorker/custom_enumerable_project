@@ -31,6 +31,15 @@ module Enumerable
       end
     end
   end
+
+  def my_any?(&block)
+    self.my_each do |num|
+      if block.call(num)
+        return true 
+      end
+    end
+    return false
+  end
 end
 
 # You will first have to define my_each
