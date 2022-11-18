@@ -7,6 +7,16 @@ module Enumerable
       counter += 1
     end
   end
+
+  def my_select(&block)
+    selected = []
+    self.my_each do |num|
+      if block.call(num)
+        selected.push(num)
+      end
+    end
+    selected
+  end
 end
 
 # You will first have to define my_each
