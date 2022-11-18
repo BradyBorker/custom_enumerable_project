@@ -65,6 +65,14 @@ module Enumerable
     end
     return new_list
   end
+
+  def my_inject(initial_value, &block)
+    total = initial_value
+    self.my_each do |num|
+      total = block.call(total, num)
+    end
+    return total
+  end
 end
 
 # You will first have to define my_each
